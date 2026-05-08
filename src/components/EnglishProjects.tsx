@@ -1,12 +1,39 @@
-import { Mic, BookOpen, MessageCircle, PenLine, Languages, Award } from "lucide-react";
+import { Mic, BookOpen, MessageCircle, PenLine, Languages, Award, Eye } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "./ui/dialog";
 
-const items = [
+type Item = {
+  icon: typeof Mic;
+  title: string;
+  desc: string;
+  skill: string;
+  score: string;
+  detail?: { heading: string; body: string; list?: string[] };
+};
+
+const items: Item[] = [
   { icon: Mic, title: "English Presentation", desc: "Presentasi bertema teknologi dan pendidikan di kelas internasional.", skill: "Speaking, Public Speaking", score: "A" },
   { icon: BookOpen, title: "TOEFL Practice Project", desc: "Latihan dan simulasi TOEFL ITP secara berkala.", skill: "Listening, Reading, Grammar", score: "Score 520+" },
   { icon: MessageCircle, title: "English Conversation", desc: "Daily conversation dengan native speaker via online meet.", skill: "Speaking, Listening", score: "Fluent" },
   { icon: PenLine, title: "English Essay Writing", desc: "Menulis essay opini dan argumentatif tentang isu pendidikan.", skill: "Writing, Vocabulary", score: "A-" },
-  { icon: Languages, title: "Vocabulary Project", desc: "Membangun database 1000+ vocabulary tematik untuk belajar.", skill: "Vocabulary, Memorization", score: "1000+ words" },
+  {
+    icon: Languages,
+    title: "Vocabulary Project",
+    desc: "Membangun database 1000+ vocabulary tematik untuk belajar.",
+    skill: "Vocabulary, Memorization",
+    score: "1000+ words",
+    detail: {
+      heading: "Database Vocabulary Tematik",
+      body: "Project ini berisi kumpulan kosakata bahasa Inggris yang dikelompokkan berdasarkan tema agar mudah dihafal dan diaplikasikan dalam percakapan sehari-hari.",
+      list: [
+        "Tema Daily Activity — 200+ kata",
+        "Tema Education & School — 250+ kata",
+        "Tema Technology & IT — 200+ kata",
+        "Tema Islamic Vocabulary — 200+ kata",
+        "Tema Travel & Culture — 150+ kata",
+      ],
+    },
+  },
   { icon: Award, title: "English Speech Contest", desc: "Peserta kompetisi pidato bahasa Inggris tingkat sekolah.", skill: "Confidence, Delivery", score: "Top 5" },
   { icon: BookOpen, title: "English Story Project", desc: "Menulis dan membacakan cerita pendek berbahasa Inggris bertema inspiratif.", skill: "Writing, Storytelling, Reading", score: "A" },
 ];
