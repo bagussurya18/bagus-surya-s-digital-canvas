@@ -8,6 +8,7 @@ const items = [
   { icon: PenLine, title: "English Essay Writing", desc: "Menulis essay opini dan argumentatif tentang isu pendidikan.", skill: "Writing, Vocabulary", score: "A-" },
   { icon: Languages, title: "Vocabulary Project", desc: "Membangun database 1000+ vocabulary tematik untuk belajar.", skill: "Vocabulary, Memorization", score: "1000+ words" },
   { icon: Award, title: "English Speech Contest", desc: "Peserta kompetisi pidato bahasa Inggris tingkat sekolah.", skill: "Confidence, Delivery", score: "Top 5" },
+  { icon: BookOpen, title: "English Story Project", desc: "Menulis dan membacakan cerita pendek berbahasa Inggris bertema inspiratif.", skill: "Writing, Storytelling, Reading", score: "A" },
 ];
 
 export function EnglishProjects() {
