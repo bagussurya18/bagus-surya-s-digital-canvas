@@ -1,4 +1,4 @@
-import { Mic, BookOpen, MessageCircle, PenLine, Languages, Award, Eye } from "lucide-react";
+import { Mic, BookOpen, MessageCircle, PenLine, Languages, Award, Eye, ExternalLink, Github } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "./ui/dialog";
 
@@ -8,7 +8,7 @@ type Item = {
   desc: string;
   skill: string;
   score: string;
-  detail?: { heading: string; body: string; list?: string[] };
+  detail?: { heading: string; body: string; list?: string[]; demo?: string; github?: string };
 };
 
 const items: Item[] = [
@@ -32,6 +32,8 @@ const items: Item[] = [
         "Tema Islamic Vocabulary — 200+ kata",
         "Tema Travel & Culture — 150+ kata",
       ],
+      demo: "",
+      github: "",
     },
   },
   { icon: Award, title: "English Speech Contest", desc: "Peserta kompetisi pidato bahasa Inggris tingkat sekolah.", skill: "Confidence, Delivery", score: "Top 5" },
@@ -87,6 +89,20 @@ export function EnglishProjects() {
                           </li>
                         ))}
                       </ul>
+                    )}
+                    {(it.detail.demo || it.detail.github) && (
+                      <div className="flex gap-2 mt-4">
+                        {it.detail.demo && (
+                          <a href={it.detail.demo} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-mint-gradient text-primary-foreground text-sm font-semibold hover:shadow-glow transition-all">
+                            <ExternalLink className="size-3.5" /> Demo
+                          </a>
+                        )}
+                        {it.detail.github && (
+                          <a href={it.detail.github} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg glass text-sm font-semibold hover:shadow-glow transition-all">
+                            <Github className="size-3.5" /> GitHub
+                          </a>
+                        )}
+                      </div>
                     )}
                   </DialogContent>
                 </Dialog>

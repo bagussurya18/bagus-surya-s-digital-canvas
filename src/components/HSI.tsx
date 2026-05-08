@@ -1,4 +1,4 @@
-import { BookMarked, Scroll, Sparkles, Star, Calendar, Camera, Eye } from "lucide-react";
+import { BookMarked, Scroll, Sparkles, Star, Calendar, Camera, Eye, ExternalLink, Github } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "./ui/dialog";
 import hsiBg from "@/assets/hsi-bg.jpg";
@@ -16,7 +16,7 @@ type Card = {
   icon: typeof Star;
   title: string;
   desc: string;
-  detail?: { heading: string; body: string; list?: string[] };
+  detail?: { heading: string; body: string; list?: string[]; demo?: string; github?: string };
 };
 
 const cards: Card[] = [
@@ -40,6 +40,8 @@ const cards: Card[] = [
         "Tema Sirah Nabawiyah",
         "Notulensi rapi & terdokumentasi",
       ],
+      demo: "",
+      github: "",
     },
   },
   {
@@ -56,6 +58,8 @@ const cards: Card[] = [
         "Matan Kitab At-Tauhid",
         "Format Markdown + tampilan responsif",
       ],
+      demo: "",
+      github: "",
     },
   },
   {
@@ -72,6 +76,8 @@ const cards: Card[] = [
         "Target: 5 Juz dengan mutqin",
         "Bimbingan langsung musyrif",
       ],
+      demo: "",
+      github: "",
     },
   },
 ];
@@ -146,6 +152,20 @@ export function HSI() {
                             </li>
                           ))}
                         </ul>
+                      )}
+                      {(c.detail.demo || c.detail.github) && (
+                        <div className="flex gap-2 mt-4">
+                          {c.detail.demo && (
+                            <a href={c.detail.demo} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-mint-gradient text-primary-foreground text-sm font-semibold hover:shadow-glow transition-all">
+                              <ExternalLink className="size-3.5" /> Demo
+                            </a>
+                          )}
+                          {c.detail.github && (
+                            <a href={c.detail.github} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg glass text-sm font-semibold hover:shadow-glow transition-all">
+                              <Github className="size-3.5" /> GitHub
+                            </a>
+                          )}
+                        </div>
                       )}
                     </DialogContent>
                   </Dialog>
