@@ -125,6 +125,31 @@ export function HSI() {
                 </div>
                 <h4 className="font-bold mb-1">{c.title}</h4>
                 <p className="text-sm text-muted-foreground">{c.desc}</p>
+                {c.detail && (
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <button className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-mint-gradient text-primary-foreground hover:shadow-glow transition-all">
+                        <Eye className="size-3.5" /> Lihat Detail
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="glass border-primary/30">
+                      <DialogHeader>
+                        <DialogTitle className="text-gradient">{c.detail.heading}</DialogTitle>
+                        <DialogDescription>{c.detail.body}</DialogDescription>
+                      </DialogHeader>
+                      {c.detail.list && (
+                        <ul className="space-y-2 mt-2">
+                          {c.detail.list.map((l) => (
+                            <li key={l} className="flex items-start gap-2 text-sm">
+                              <span className="size-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                              <span>{l}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </DialogContent>
+                  </Dialog>
+                )}
               </div>
             ))}
           </div>
