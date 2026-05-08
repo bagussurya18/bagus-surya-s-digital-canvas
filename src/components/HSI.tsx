@@ -1,5 +1,6 @@
-import { BookMarked, Scroll, Sparkles, Star, Calendar, Camera } from "lucide-react";
+import { BookMarked, Scroll, Sparkles, Star, Calendar, Camera, Eye } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "./ui/dialog";
 import hsiBg from "@/assets/hsi-bg.jpg";
 
 const subjects = [
@@ -11,16 +12,68 @@ const subjects = [
   { name: "IT", level: "Mumtaz" },
 ];
 
-const cards = [
+type Card = {
+  icon: typeof Star;
+  title: string;
+  desc: string;
+  detail?: { heading: string; body: string; list?: string[] };
+};
+
+const cards: Card[] = [
   { icon: Star, title: "Prestasi Akademik", desc: "Peringkat 5 besar di kelas Tahfidz dan Diniyah." },
   { icon: Scroll, title: "Sertifikat", desc: "Sertifikat menyelesaikan Mutun & program akademik HSI." },
   { icon: BookMarked, title: "Hafalan", desc: "Sedang menargetkan 5 juz Al-Qur'an & beberapa Mutun." },
   { icon: Calendar, title: "Jadwal Belajar", desc: "Senin–Sabtu: Diniyah pagi, Akademik siang, Tahfidz malam." },
   { icon: Camera, title: "Dokumentasi", desc: "Aktif mendokumentasikan kegiatan halaqah & kajian." },
   { icon: Sparkles, title: "Visi", desc: "Menjadi penuntut ilmu yang istiqamah dan bermanfaat." },
-  { icon: BookMarked, title: "Kajian Tematik", desc: "Aktif mengikuti dan merangkum kajian tematik bersama para asatidzah." },
-  { icon: Scroll, title: "Project Mutun Digital", desc: "Membuat catatan digital matan-matan ilmu syar'i untuk memudahkan murajaah." },
-  { icon: Star, title: "Tahsin & Tahfidz", desc: "Memperbaiki bacaan Al-Qur'an dan menambah hafalan secara konsisten." },
+  {
+    icon: BookMarked,
+    title: "Kajian Tematik",
+    desc: "Aktif mengikuti dan merangkum kajian tematik bersama para asatidzah.",
+    detail: {
+      heading: "Kajian Tematik",
+      body: "Mengikuti kajian dengan tema-tema spesifik, lalu merangkum poin penting agar bisa di-murajaah dan dibagikan.",
+      list: [
+        "Tema Aqidah — Tauhid, Asma wa Shifat",
+        "Tema Fikih — Thaharah, Shalat, Puasa",
+        "Tema Akhlak & Adab penuntut ilmu",
+        "Tema Sirah Nabawiyah",
+        "Notulensi rapi & terdokumentasi",
+      ],
+    },
+  },
+  {
+    icon: Scroll,
+    title: "Project Mutun Digital",
+    desc: "Membuat catatan digital matan-matan ilmu syar'i untuk memudahkan murajaah.",
+    detail: {
+      heading: "Project Mutun Digital",
+      body: "Mengubah matan-matan klasik menjadi catatan digital yang rapi, dapat dicari, dan mudah diakses lewat HP.",
+      list: [
+        "Matan Al-Ajurrumiyyah (Nahwu)",
+        "Matan Al-Ushul Ats-Tsalatsah",
+        "Matan Al-Qawa'id Al-Arba'",
+        "Matan Kitab At-Tauhid",
+        "Format Markdown + tampilan responsif",
+      ],
+    },
+  },
+  {
+    icon: Star,
+    title: "Tahsin & Tahfidz",
+    desc: "Memperbaiki bacaan Al-Qur'an dan menambah hafalan secara konsisten.",
+    detail: {
+      heading: "Tahsin & Tahfidz Al-Qur'an",
+      body: "Program rutin perbaikan bacaan (tahsin) dan penambahan hafalan (tahfidz) dengan target dan setoran terjadwal.",
+      list: [
+        "Tahsin: makharijul huruf & tajwid",
+        "Setoran hafalan harian ba'da Subuh",
+        "Murajaah hafalan ba'da Ashar",
+        "Target: 5 Juz dengan mutqin",
+        "Bimbingan langsung musyrif",
+      ],
+    },
+  },
 ];
 
 export function HSI() {
@@ -72,6 +125,31 @@ export function HSI() {
                 </div>
                 <h4 className="font-bold mb-1">{c.title}</h4>
                 <p className="text-sm text-muted-foreground">{c.desc}</p>
+                {c.detail && (
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <button className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-mint-gradient text-primary-foreground hover:shadow-glow transition-all">
+                        <Eye className="size-3.5" /> Lihat Detail
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="glass border-primary/30">
+                      <DialogHeader>
+                        <DialogTitle className="text-gradient">{c.detail.heading}</DialogTitle>
+                        <DialogDescription>{c.detail.body}</DialogDescription>
+                      </DialogHeader>
+                      {c.detail.list && (
+                        <ul className="space-y-2 mt-2">
+                          {c.detail.list.map((l) => (
+                            <li key={l} className="flex items-start gap-2 text-sm">
+                              <span className="size-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                              <span>{l}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </DialogContent>
+                  </Dialog>
+                )}
               </div>
             ))}
           </div>
