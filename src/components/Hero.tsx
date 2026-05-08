@@ -1,4 +1,4 @@
-import { Download, Mail, ArrowRight, Github, Instagram, Code2 } from "lucide-react";
+import { Mail, ArrowRight, Github, Instagram, Code2 } from "lucide-react";
 import profile from "@/assets/profile.jpg";
 
 export function Hero() {

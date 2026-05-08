@@ -18,6 +18,9 @@ const cards = [
   { icon: Calendar, title: "Jadwal Belajar", desc: "Senin–Sabtu: Diniyah pagi, Akademik siang, Tahfidz malam." },
   { icon: Camera, title: "Dokumentasi", desc: "Aktif mendokumentasikan kegiatan halaqah & kajian." },
   { icon: Sparkles, title: "Visi", desc: "Menjadi penuntut ilmu yang istiqamah dan bermanfaat." },
+  { icon: BookMarked, title: "Kajian Tematik", desc: "Aktif mengikuti dan merangkum kajian tematik bersama para asatidzah." },
+  { icon: Scroll, title: "Project Mutun Digital", desc: "Membuat catatan digital matan-matan ilmu syar'i untuk memudahkan murajaah." },
+  { icon: Star, title: "Tahsin & Tahfidz", desc: "Memperbaiki bacaan Al-Qur'an dan menambah hafalan secara konsisten." },
 ];
 
 export function HSI() {
