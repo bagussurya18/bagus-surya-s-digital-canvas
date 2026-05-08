@@ -33,9 +33,6 @@ export function Hero() {
                 Lihat Project
                 <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="/cv-bagus-surya.pdf" download className="inline-flex items-center gap-2 px-5 py-3 rounded-xl glass font-semibold hover:shadow-glow transition-all">
-                <Download className="size-4" /> Download CV
-              </a>
               <a href="#contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl glass font-semibold hover:shadow-glow transition-all">
                 <Mail className="size-4" /> Hubungi Saya
               </a>
