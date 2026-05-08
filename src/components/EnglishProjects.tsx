@@ -66,6 +66,31 @@ export function EnglishProjects() {
               <div className="text-xs text-muted-foreground border-t border-border pt-3">
                 <span className="text-primary font-semibold">Skills:</span> {it.skill}
               </div>
+              {it.detail && (
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <button className="mt-4 w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-mint-gradient text-primary-foreground text-sm font-semibold hover:shadow-glow transition-all">
+                      <Eye className="size-3.5" /> Lihat Detail
+                    </button>
+                  </DialogTrigger>
+                  <DialogContent className="glass border-primary/30">
+                    <DialogHeader>
+                      <DialogTitle className="text-gradient">{it.detail.heading}</DialogTitle>
+                      <DialogDescription>{it.detail.body}</DialogDescription>
+                    </DialogHeader>
+                    {it.detail.list && (
+                      <ul className="space-y-2 mt-2">
+                        {it.detail.list.map((l) => (
+                          <li key={l} className="flex items-start gap-2 text-sm">
+                            <span className="size-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                            <span>{l}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </DialogContent>
+                </Dialog>
+              )}
             </div>
           ))}
         </div>
